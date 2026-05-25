@@ -40,11 +40,13 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/sitemap.xml', '/robots.txt']
+      routes: ['/', '/privacy-policy', '/consent-processing', '/sitemap.xml', '/robots.txt']
     }
   },
   routeRules: {
     '/': { prerender: true },
+    '/privacy-policy': { prerender: true },
+    '/consent-processing': { prerender: true },
     '/api/**': { cors: false }
   },
   typescript: {

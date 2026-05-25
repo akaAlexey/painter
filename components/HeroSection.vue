@@ -2,13 +2,23 @@
 import { product } from '~/data/product'
 
 const props = defineProps<{ asset: (path: string) => string }>()
-const titleWords = ['Краска', 'для', 'продажи']
 const { openOfferModal } = useSalesUiActions()
 
 const offerBadges = [
   'Расчет объема за 1 сообщение',
   'Белая база под колеровку',
   'Фасовка 1 · 5 · 9 л'
+]
+
+const heroCans = [
+  { class: 'can-main', width: 320, height: 340, alt: 'Большая банка краски ELASTIC PRO' },
+  { class: 'can-mid can-mid-a', width: 220, height: 230, alt: 'Средняя банка краски ELASTIC PRO' },
+  { class: 'can-mid can-mid-b', width: 220, height: 230, alt: 'Средняя банка краски ELASTIC PRO' },
+  { class: 'can-mini can-mini-1', width: 138, height: 148, alt: 'Банка краски ELASTIC PRO 1 литр' },
+  { class: 'can-mini can-mini-2', width: 138, height: 148, alt: 'Банка краски ELASTIC PRO 1 литр' },
+  { class: 'can-mini can-mini-3', width: 138, height: 148, alt: 'Банка краски ELASTIC PRO 1 литр' },
+  { class: 'can-mini can-mini-4', width: 138, height: 148, alt: 'Банка краски ELASTIC PRO 1 литр' },
+  { class: 'can-mini can-mini-5', width: 138, height: 148, alt: 'Банка краски ELASTIC PRO 1 литр' }
 ]
 </script>
 
@@ -20,7 +30,7 @@ const offerBadges = [
       <span class="motion-line motion-line-1" />
     </div>
 
-    <div class="container hero-grid">
+    <div class="container hero-grid hero-grid--sales">
       <div class="hero-content reveal-up">
         <p class="eyebrow">{{ product.brand }} · продажа краски</p>
         <h1 id="hero-title" class="kinetic-title" aria-label="Краска ELASTIC PRO для внутренних и наружных работ">
@@ -29,7 +39,7 @@ const offerBadges = [
           <em>для стен, потолков и фасадов</em>
         </h1>
         <p class="hero-lead hero-lead--sales">
-          Белая матовая эластичная краска для внутренних и наружных работ. Подходит для продажи частным клиентам и на объекты: можно рассчитать объем, выбрать фасовку 1 / 5 / 9 л и оставить заявку на покупку за пару кликов.
+          Белая матовая эластичная краска для внутренних и наружных работ. Подходит для частных заказов, объектов и перепродажи: можно быстро рассчитать объем, выбрать фасовку 1 / 5 / 9 л и сразу отправить заявку.
         </p>
 
         <div class="hero-actions" aria-label="Основные действия">
@@ -57,20 +67,31 @@ const offerBadges = [
         </dl>
       </div>
 
-      <div class="hero-card room-card hero-card--framed reveal-up reveal-delay-1" aria-label="Интерьерная сцена ELASTIC PRO">
-        <div class="hero-room hero-room--sales room-stage room-stage--sales room-stage--hero" style="--wall: #d7d0c4; --wall-shadow: #b9b09f;">
-          <div class="room-back-wall" />
-          <div class="room-side-wall" />
-          <div class="room-floor" :style="{ backgroundImage: `url(${props.asset(product.room.floor)})` }" />
-          <img class="hero-outlet hero-outlet-left" :src="props.asset('/img/outlet.png')" width="96" height="96" alt="Розетка на стене" loading="eager">
-          <img class="hero-outlet hero-outlet-right" :src="props.asset('/img/outlet.png')" width="96" height="96" alt="Розетка на стене" loading="eager">
-          <img class="hero-bed" :src="props.asset(product.room.bed)" width="1450" height="780" alt="Кровать в комнате" loading="eager" fetchpriority="high">
-          <img class="hero-bucket" :src="props.asset(product.productImage)" width="485" height="514" alt="Банка краски ELASTIC PRO" loading="eager">
+      <div class="hero-showcase glass-card reveal-up reveal-delay-1" aria-label="Линейка банок ELASTIC PRO">
+        <div class="hero-showcase__bg" aria-hidden="true">
+          <span class="showcase-glow showcase-glow-a" />
+          <span class="showcase-glow showcase-glow-b" />
+          <span class="showcase-orbit showcase-orbit-a" />
+          <span class="showcase-orbit showcase-orbit-b" />
         </div>
-        <div class="hero-product-label glass-card hero-product-label--sales">
+
+        <div class="hero-packshot">
+          <img
+            v-for="can in heroCans"
+            :key="can.class"
+            :class="['packshot-can', can.class]"
+            :src="props.asset(product.productImage)"
+            :width="can.width"
+            :height="can.height"
+            :alt="can.alt"
+            loading="eager"
+          >
+        </div>
+
+        <div class="hero-product-label glass-card hero-product-label--sales hero-product-label--hero">
           <div>
             <span>{{ product.name }}</span>
-            <strong>белая матовая краска · можно колеровать · 1 / 5 / 9 л</strong>
+            <strong>1 × 9 л · 2 × 5 л · 5 × 1 л · белая база под колеровку</strong>
           </div>
           <button class="btn btn-primary" type="button" @click="openOfferModal('hero-label')">Купить / оставить заявку</button>
         </div>

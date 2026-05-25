@@ -185,7 +185,7 @@ async function submitLead() {
 
         <p v-if="success" class="form-status success">Заявка отправлена. Продавец свяжется с вами по указанному способу.</p>
         <p v-if="errorMessage" class="form-status error">{{ errorMessage }}</p>
-        <p class="form-legal">Нажимая кнопку, вы соглашаетесь на обработку контактов для обратной связи.</p>
+        <p class="form-legal">Нажимая кнопку, вы соглашаетесь с <NuxtLink to="/privacy-policy">политикой конфиденциальности</NuxtLink> и <NuxtLink to="/consent-processing">согласием на обработку персональных данных</NuxtLink>.</p>
       </form>
     </div>
   </section>

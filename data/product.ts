@@ -13,7 +13,6 @@ export const product = {
   coveragePerLiterTwoCoats: 7,
   crackResistance: 'до 1 мм',
   color: 'белый матовый',
-  tinting: 'можно колеровать водными или универсальными колеровочными пастами',
   volumes: [1, 5, 9] as PaintVolume[],
   density: '1 л = 1200 г',
   drying: {
@@ -22,21 +21,13 @@ export const product = {
     full: '4 часа'
   },
   tools: ['кисть с синтетическим ворсом', 'валик для водно-дисперсионных красок', 'распылитель'],
-  phone: '+79774966737',
-  phoneFormatted: '8 (977) 496-67-37',
+  phone: '+79851385850',
+  phoneFormatted: '+7 (985) 138-58-50',
   email: 'Vidtechnology@mail.ru',
-  telegramUrl: '',
-  maxUrl: '',
-  heroImage: '/img/og-room.webp',
+  heroImage: '/img/interior-kitchen.jpg',
   productImage: '/img/paint-bucket.png',
   brandPoster: '/img/paint-bucket.png',
   applicationImage: '/img/paint-bucket.png',
-  room: {
-    floor: '/img/room-floor.webp',
-    bed: '/img/bed.png',
-    nightstand: '/img/nightstand.png',
-    lamp: '/img/lamp.png'
-  },
   docs: [
     {
       title: 'Презентация ELASTIC PRO',
@@ -68,8 +59,8 @@ export const advantages = [
     value: '1 л / 7 м²'
   },
   {
-    title: 'Матовая белая база',
-    text: 'Краска выпускается в белом матовом цвете и подходит для последующей колеровки.',
+    title: 'Белая матовая',
+    text: 'Краска продается в белом матовом цвете и формирует спокойное, аккуратное покрытие.',
     value: 'белый мат'
   },
   {
@@ -98,14 +89,14 @@ export const useCases = [
   'фасадные поверхности',
   'беседки и террасы',
   'ремонтные зоны со стыками',
-  'основания под колеровку',
+  'подготовленные основания',
   'поверхности под мытье'
 ]
 
 export const orderSteps = [
   {
     title: 'Оставьте номер',
-    text: 'Можно сразу указать площадь, нужный объем, оттенок и удобный способ связи.'
+    text: 'Можно сразу указать площадь, нужный объем и задачу ремонта.'
   },
   {
     title: 'Получите расчет',
@@ -119,8 +110,8 @@ export const orderSteps = [
 
 export const faqs = [
   {
-    question: 'Можно ли колеровать ELASTIC PRO?',
-    answer: 'Да. Краска выпускается как белая матовая база и подходит для колеровки водными или универсальными колеровочными пастами.'
+    question: 'Какого цвета ELASTIC PRO?',
+    answer: 'Краска продается только в белом матовом цвете.'
   },
   {
     question: 'Сколько краски нужно на 63 м²?',
@@ -152,7 +143,6 @@ export const seoKeywords = [
   'белая матовая краска',
   'краска для фасада',
   'краска для стен и потолков',
-  'краска под колеровку',
   'ELASTIC PRO',
   'VIDTECHNOLOGY'
 ]

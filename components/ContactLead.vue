@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { product } from '~/data/product'
-
 const form = reactive({
   name: '',
   phone: '',
@@ -26,13 +24,9 @@ watch(
     if (leadDraft.value.area) form.area = leadDraft.value.area
     if (leadDraft.value.volume) form.volume = leadDraft.value.volume
 
-    const nextNotes = [leadDraft.value.comment, leadDraft.value.color ? `Цвет: ${leadDraft.value.color}` : '']
-      .filter(Boolean)
-      .join('\n')
-
-    if (nextNotes) {
+    if (leadDraft.value.comment) {
       const current = form.comment.trim()
-      form.comment = current ? `${nextNotes}\n${current}` : nextNotes
+      form.comment = current ? `${leadDraft.value.comment}\n${current}` : leadDraft.value.comment
     }
   },
   { immediate: true }
@@ -44,20 +38,6 @@ const isPhoneValid = computed(() => {
 })
 
 const canSubmit = computed(() => form.name.trim().length >= 2 && isPhoneValid.value && !pending.value)
-
-const mailHref = computed(() => {
-  const subject = encodeURIComponent('Заявка ELASTIC PRO')
-  const body = encodeURIComponent([
-    'Здравствуйте. Хочу купить ELASTIC PRO.',
-    `Имя: ${form.name || 'не указано'}`,
-    `Телефон: ${form.phone || 'не указан'}`,
-    `Способ связи: ${form.contactMethod}`,
-    form.area ? `Площадь: ${form.area} м²` : '',
-    form.volume ? `Объем: ${form.volume}` : '',
-    form.comment ? `Комментарий: ${form.comment}` : ''
-  ].filter(Boolean).join('\n'))
-  return `mailto:${product.email}?subject=${subject}&body=${body}`
-})
 
 async function submitLead() {
   success.value = false
@@ -81,11 +61,9 @@ async function submitLead() {
     form.phone = ''
     form.area = ''
     form.volume = 'рассчитать'
-    form.contactMethod = 'звонок'
     form.comment = ''
-  } catch (error: unknown) {
-    const responseError = error as { data?: { statusMessage?: string }; statusMessage?: string; message?: string }
-    errorMessage.value = responseError.data?.statusMessage || responseError.statusMessage || responseError.message || 'Не удалось отправить заявку. Попробуйте позвонить или написать на почту.'
+  } catch {
+    errorMessage.value = 'Автоматическая отправка пока недоступна. Скопируйте номер продавца и свяжитесь напрямую.'
   } finally {
     pending.value = false
   }
@@ -97,20 +75,19 @@ async function submitLead() {
     <div class="container contacts-grid">
       <div class="contacts-copy reveal-up">
         <p class="eyebrow">Заявка на покупку</p>
-        <h2 id="contacts-title">Оставьте номер — поможем продать, рассчитать и оформить заказ</h2>
+        <h2 id="contacts-title">Оставьте номер — поможем рассчитать и оформить заказ</h2>
         <p>
-          Сайт в первую очередь помогает продать ELASTIC PRO: можно рассчитать расход, выбрать фасовку, указать интерес к колеровке и сразу отправить заявку продавцу.
+          Укажите площадь и задачу ремонта. Продавец уточнит расход, подходящую фасовку 1 / 5 / 9 л и условия получения заказа.
         </p>
 
         <div class="lead-points">
-          <span>Расчет объема и фасовки 1 / 5 / 9 л</span>
-          <span>Колеровка и помощь с выбором оттенка</span>
+          <span>Расчет объема по площади</span>
+          <span>Фасовка 1 / 5 / 9 л</span>
           <span>Покупка для дома, ремонта или объекта</span>
         </div>
 
         <div class="contact-actions contact-actions--sales">
           <CopyPhoneButton class-name="btn btn-primary liquid-btn" />
-          <a class="btn btn-secondary" :href="mailHref">Отправить заявку на почту</a>
         </div>
 
         <div class="quick-offers glass-card">
@@ -118,13 +95,13 @@ async function submitLead() {
           <div>
             <span>площадь в м²</span>
             <span>нужную фасовку</span>
-            <span>интерес к колеровке</span>
+            <span>тип поверхности</span>
             <span>нужен ли обратный звонок</span>
           </div>
         </div>
 
         <p class="contact-note">
-          Белая база подходит для колеровки. Перед подтверждением продавец уточнит площадь, способ нанесения, запас и удобный формат получения заказа.
+          Краска продается в белом матовом цвете. Перед подтверждением заказа продавец уточнит площадь, способ нанесения, запас и удобный формат получения.
         </p>
       </div>
 
@@ -146,14 +123,8 @@ async function submitLead() {
           </label>
           <label>
             <span>Телефон*</span>
-            <input v-model.trim="form.phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 977 496-67-37" required>
+            <input v-model.trim="form.phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 985 138-58-50" required>
           </label>
-        </div>
-
-        <div class="contact-methods" aria-label="Предпочтительный способ связи">
-          <button type="button" :class="{ active: form.contactMethod === 'звонок' }" @click="form.contactMethod = 'звонок'">Звонок</button>
-          <button type="button" :class="{ active: form.contactMethod === 'Telegram' }" @click="form.contactMethod = 'Telegram'">Telegram</button>
-          <button type="button" :class="{ active: form.contactMethod === 'MAX' }" @click="form.contactMethod = 'MAX'">MAX</button>
         </div>
 
         <div class="form-row two-columns">
@@ -175,7 +146,7 @@ async function submitLead() {
 
         <label>
           <span>Комментарий</span>
-          <textarea v-model.trim="form.comment" name="comment" rows="4" placeholder="Например: нужна белая база под колеровку, расчет для фасада, нужна консультация по покупке" />
+          <textarea v-model.trim="form.comment" name="comment" rows="4" placeholder="Например: нужен расчет для фасада, площадь 63 м², хочу уточнить наличие" />
         </label>
 
         <button class="btn btn-primary liquid-btn submit-btn" type="submit" :disabled="pending">
@@ -183,8 +154,11 @@ async function submitLead() {
           <span v-else>Отправить заявку</span>
         </button>
 
-        <p v-if="success" class="form-status success">Заявка отправлена. Продавец свяжется с вами по указанному способу.</p>
-        <p v-if="errorMessage" class="form-status error">{{ errorMessage }}</p>
+        <p v-if="success" class="form-status success">Заявка отправлена. Продавец свяжется с вами по телефону.</p>
+        <div v-if="errorMessage" class="form-fallback">
+          <p class="form-status error">{{ errorMessage }}</p>
+          <CopyPhoneButton class-name="btn btn-secondary" />
+        </div>
         <p class="form-legal">Нажимая кнопку, вы соглашаетесь с <NuxtLink to="/privacy-policy">политикой конфиденциальности</NuxtLink> и <NuxtLink to="/consent-processing">согласием на обработку персональных данных</NuxtLink>.</p>
       </form>
     </div>

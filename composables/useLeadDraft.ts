@@ -2,7 +2,6 @@ export type LeadDraft = {
   area: string
   volume: string
   comment: string
-  color: string
   source: string
   updatedAt: number
 }
@@ -12,7 +11,6 @@ export function useLeadDraft() {
     area: '',
     volume: 'рассчитать',
     comment: '',
-    color: '',
     source: '',
     updatedAt: 0
   }))
@@ -52,17 +50,5 @@ export function useLeadActions() {
     scrollToLead()
   }
 
-  function setColor(payload: { label: string; color: string }) {
-    draft.value = {
-      ...draft.value,
-      color: `${payload.label} (${payload.color})`,
-      source: 'visualizer',
-      comment: `Интересует колеровка: ${payload.label}. Оттенок с визуализатора: ${payload.color}.`,
-      updatedAt: Date.now()
-    }
-
-    scrollToLead()
-  }
-
-  return { draft, setCalculation, setColor, scrollToLead }
+  return { draft, setCalculation, scrollToLead }
 }

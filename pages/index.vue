@@ -9,7 +9,7 @@ const asset = (path: string) => `${normalizedBase}${path.startsWith('/') ? path 
 const assetUrl = (path: string) => `${siteUrl}${asset(path)}`
 
 const title = `${product.name} — эластичная матовая краска VIDTECHNOLOGY`
-const description = 'ELASTIC PRO — белая матовая эластичная краска для внутренних и наружных работ. Расход 1 л на 7 м² в два слоя, можно колеровать, цена 1200 ₽/л.'
+const description = 'ELASTIC PRO — белая матовая эластичная краска для внутренних и наружных работ. Расход 1 л на 7 м² в два слоя, фасовка 1, 5 и 9 л, цена 1200 ₽/л.'
 
 useSeoMeta({
   title,
@@ -19,12 +19,12 @@ useSeoMeta({
   ogDescription: description,
   ogType: 'website',
   ogUrl: `${siteUrl}/`,
-  ogImage: assetUrl(product.productImage),
-  ogImageAlt: 'Банка краски ELASTIC PRO VIDTECHNOLOGY',
+  ogImage: assetUrl(product.heroImage),
+  ogImageAlt: 'Белые стены и потолок в интерьере ELASTIC PRO',
   twitterCard: 'summary_large_image',
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: assetUrl(product.productImage),
+  twitterImage: assetUrl(product.heroImage),
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 })
 
@@ -44,7 +44,7 @@ useHead({
       <HeroSection :asset="asset" />
       <ContactLead />
       <PaintCalculator />
-      <ColorVisualizer :asset="asset" />
+      <InteriorShowcase :asset="asset" />
       <AdvantagesGrid />
       <UseCases />
       <ApplicationSteps :asset="asset" />

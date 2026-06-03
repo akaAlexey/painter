@@ -6,7 +6,7 @@ const { openOfferModal } = useSalesUiActions()
 
 const offerBadges = [
   'Расчет объема за 1 сообщение',
-  'Белая база под колеровку',
+  'Белая матовая краска',
   'Фасовка 1 · 5 · 9 л'
 ]
 
@@ -24,22 +24,16 @@ const heroCans = [
 
 <template>
   <section class="hero section" aria-labelledby="hero-title">
-    <div class="motion-field" aria-hidden="true">
-      <span class="motion-drop motion-drop-1" />
-      <span class="motion-drop motion-drop-2" />
-      <span class="motion-line motion-line-1" />
-    </div>
-
     <div class="container hero-grid hero-grid--sales">
       <div class="hero-content reveal-up">
-        <p class="eyebrow">{{ product.brand }} · продажа краски</p>
+        <p class="eyebrow">{{ product.brand }} · премиальная краска</p>
         <h1 id="hero-title" class="kinetic-title" aria-label="Краска ELASTIC PRO для внутренних и наружных работ">
           <span>ELASTIC</span>
           <span>PRO</span>
           <em>для стен, потолков и фасадов</em>
         </h1>
         <p class="hero-lead hero-lead--sales">
-          Белая матовая эластичная краска для внутренних и наружных работ. Подходит для частных заказов, объектов и перепродажи: можно быстро рассчитать объем, выбрать фасовку 1 / 5 / 9 л и сразу отправить заявку.
+          Белая матовая эластичная краска для внутренних и наружных работ. Подходит для частных заказов и объектов: можно быстро рассчитать объем, выбрать фасовку 1 / 5 / 9 л и сразу отправить заявку.
         </p>
 
         <div class="hero-actions" aria-label="Основные действия">
@@ -67,14 +61,7 @@ const heroCans = [
         </dl>
       </div>
 
-      <div class="hero-showcase glass-card reveal-up reveal-delay-1" aria-label="Линейка банок ELASTIC PRO">
-        <div class="hero-showcase__bg" aria-hidden="true">
-          <span class="showcase-glow showcase-glow-a" />
-          <span class="showcase-glow showcase-glow-b" />
-          <span class="showcase-orbit showcase-orbit-a" />
-          <span class="showcase-orbit showcase-orbit-b" />
-        </div>
-
+      <div class="hero-showcase hero-showcase--clean glass-card reveal-up reveal-delay-1" aria-label="Линейка банок ELASTIC PRO">
         <div class="hero-packshot">
           <img
             v-for="can in heroCans"
@@ -91,7 +78,7 @@ const heroCans = [
         <div class="hero-product-label glass-card hero-product-label--sales hero-product-label--hero">
           <div>
             <span>{{ product.name }}</span>
-            <strong>1 × 9 л · 2 × 5 л · 5 × 1 л · белая база под колеровку</strong>
+            <strong>1 × 9 л · 2 × 5 л · 5 × 1 л · белый матовый цвет</strong>
           </div>
           <button class="btn btn-primary" type="button" @click="openOfferModal('hero-label')">Купить / оставить заявку</button>
         </div>

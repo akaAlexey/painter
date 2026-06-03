@@ -3226,3 +3226,174 @@ h1, h2, h3, p, a, button, strong, span, dd, dt {
     padding: 18px;
   }
 }
+
+/* MVP-13: remove projector-like lights, remove tinting UI, add real interior block */
+body::after,
+.contacts::before,
+.motion-field,
+.showcase-glow,
+.showcase-orbit {
+  display: none !important;
+}
+
+.hero-showcase--clean {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)),
+    linear-gradient(145deg, rgba(12,20,34,.98), rgba(6,10,18,.98));
+  box-shadow: 0 30px 90px rgba(0,0,0,.36);
+}
+
+.hero-showcase--clean::before {
+  position: absolute;
+  inset: 16px;
+  content: "";
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.hero-showcase--clean::after {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 122px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+  pointer-events: none;
+}
+
+.packshot-can {
+  animation-timing-function: ease-in-out;
+  filter: drop-shadow(0 20px 28px rgba(0,0,0,.3));
+}
+
+.can-main {
+  animation-duration: 7.4s;
+}
+
+.can-mid {
+  animation-duration: 8.2s;
+}
+
+.can-mini {
+  animation-duration: 6.8s;
+}
+
+.interior-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(520px, 1.22fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+}
+
+.interior-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.interior-points span {
+  padding: 10px 13px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255,255,255,.05);
+  font-weight: 760;
+}
+
+.interior-photo-card {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 28px;
+}
+
+.interior-photo-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 62%, rgba(0,0,0,.58));
+}
+
+.interior-photo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 7.2;
+  object-fit: cover;
+  filter: saturate(.92) contrast(1.02) brightness(.96);
+}
+
+.interior-photo-card figcaption {
+  position: absolute;
+  z-index: 1;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  color: rgba(255,255,255,.88);
+  font-size: .9rem;
+  font-weight: 760;
+  line-height: 1.45;
+}
+
+.form-fallback {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.form-fallback .form-status {
+  margin-top: 0;
+}
+
+@media (max-width: 1060px) {
+  .interior-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-showcase--clean {
+    min-height: 404px;
+  }
+
+  .hero-showcase--clean::after {
+    bottom: 112px;
+  }
+
+  .interior-photo-card {
+    border-radius: 22px;
+  }
+
+  .interior-photo-card img {
+    aspect-ratio: 1.25 / 1;
+  }
+
+  .interior-photo-card figcaption {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    font-size: .82rem;
+  }
+
+  .interior-points span {
+    width: 100%;
+  }
+}
+
+/* MVP-13: quieter premium motion */
+.liquid-btn::before,
+.liquid-btn::after {
+  opacity: .2;
+  animation-duration: 8s;
+}
+
+.liquid-drop {
+  opacity: .14 !important;
+  animation-duration: 14s;
+}
+
+.use-cases-art {
+  background: linear-gradient(145deg, rgba(49,62,82,.58), rgba(9,15,26,.94));
+}

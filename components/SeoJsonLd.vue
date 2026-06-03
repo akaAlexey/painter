@@ -31,7 +31,6 @@ const organizationSchema = computed(() => ({
   '@type': 'Organization',
   name: product.brand,
   url: pageUrl.value,
-  email: product.email,
   telephone: product.phone,
   logo: props.assetUrl('/img/logo-source.png')
 }))

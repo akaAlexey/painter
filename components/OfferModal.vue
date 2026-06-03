@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { product } from '~/data/product'
-
 const { state, closeOfferModal, applyOffer } = useSalesUiActions()
 
 const offers = [
@@ -13,14 +11,6 @@ const offers = [
     })
   },
   {
-    title: 'Подобрать вариант под колеровку',
-    text: 'Поможем подобрать белую базу под ваш оттенок.',
-    action: () => applyOffer({
-      label: 'Колеровка',
-      comment: 'Интересует ELASTIC PRO под колеровку. Нужна консультация по оттенку и объему.'
-    })
-  },
-  {
     title: 'Оставить заявку на покупку',
     text: 'Если объем уже понятен, можно сразу перейти к заказу.',
     action: () => applyOffer({
@@ -29,8 +19,16 @@ const offers = [
     })
   },
   {
+    title: 'Уточнить наличие',
+    text: 'Продавец проверит доступную фасовку и поможет собрать заказ.',
+    action: () => applyOffer({
+      label: 'Наличие',
+      comment: 'Хочу уточнить наличие ELASTIC PRO и доступную фасовку.'
+    })
+  },
+  {
     title: 'Нужен обратный звонок',
-    text: 'Продавец свяжется и поможет по материалу.',
+    text: 'Продавец свяжется и ответит на вопросы по материалу.',
     action: () => applyOffer({
       label: 'Обратный звонок',
       comment: 'Нужен обратный звонок по краске ELASTIC PRO.'
@@ -56,7 +54,7 @@ onBeforeUnmount(() => {
         <p class="eyebrow">Быстрое предложение</p>
         <h2 id="offer-modal-title">Как удобнее начать заказ?</h2>
         <p class="offer-modal__lead">
-          Выберите удобный сценарий. Мы подставим его в заявку и переведем вас сразу к форме.
+          Выберите сценарий. Мы подставим его в заявку и переведем вас сразу к форме.
         </p>
 
         <div class="offer-modal__grid">
@@ -74,7 +72,6 @@ onBeforeUnmount(() => {
 
         <div class="offer-modal__footer">
           <CopyPhoneButton class-name="btn btn-secondary offer-modal__phone" />
-          <a class="btn btn-primary liquid-btn" :href="`mailto:${product.email}`"><span>Написать на почту</span></a>
         </div>
       </div>
     </div>

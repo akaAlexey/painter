@@ -2,7 +2,7 @@
 const links = [
   { href: '#contacts', label: 'Заявка' },
   { href: '#calculator', label: 'Расход' },
-  { href: '#visualizer', label: 'Колеровка' },
+  { href: '#interior', label: 'Интерьер' },
   { href: '#faq', label: 'FAQ' },
   { href: '#documents', label: 'Документы' }
 ]

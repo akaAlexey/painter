@@ -16,7 +16,7 @@ const steps = [
   },
   {
     title: 'Повторить слой',
-    text: 'Второй слой наносится после высыхания первого. Полное высыхание при нормальных условиях — около 4 часов.'
+    text: 'Второй слой наносится после высыхания первого. Полное высыхание при нормальных условиях - около 4 часов.'
   }
 ]
 </script>
@@ -28,7 +28,7 @@ const steps = [
         <p class="eyebrow">Нанесение</p>
         <h2 id="steps-title">Сценарий ремонта без лишней сложности</h2>
         <p>
-          Краска наносится привычными инструментами. Главное — подготовить основание, загрунтовать поверхность и соблюдать условия нанесения.
+          Краска наносится привычными инструментами. Главное - подготовить основание, загрунтовать поверхность и соблюдать условия нанесения.
         </p>
         <ul class="tool-list" aria-label="Инструменты нанесения">
           <li v-for="tool in product.tools" :key="tool">{{ tool }}</li>
@@ -36,11 +36,9 @@ const steps = [
       </div>
 
       <div class="steps-card glass-card reveal-up reveal-delay-1">
-        <div class="paint-loader" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <strong>ELASTIC PRO</strong>
+        <div class="steps-product-band" aria-label="ELASTIC PRO">
+          <span>ELASTIC PRO</span>
+          <strong>4 шага до ровного покрытия</strong>
         </div>
         <ol>
           <li v-for="step in steps" :key="step.title">

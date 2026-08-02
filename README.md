@@ -31,6 +31,23 @@ npm run preview
 
 Для GitHub Pages используется статическая сборка.
 
+## Продакшен-домен
+
+Сайт собирается для `https://elastic-pro.ru` с корневым `baseURL`.
+
+Для подключения домена к GitHub Pages нужно:
+
+1. В `Settings → Pages → Custom domain` указать `elastic-pro.ru`.
+2. В DNS REG.RU заменить парковочные записи на четыре A-записи GitHub Pages:
+   - `185.199.108.153`
+   - `185.199.109.153`
+   - `185.199.110.153`
+   - `185.199.111.153`
+3. Для `www` создать CNAME на `akaalexey.github.io`.
+4. После проверки DNS включить `Enforce HTTPS` в настройках GitHub Pages.
+
+Проект публикуется через custom GitHub Actions workflow, поэтому файл `CNAME` не используется: домен задается в настройках Pages.
+
 ## Важно для GitHub Pages
 
 GitHub Pages не поддерживает серверные Nuxt API routes. Это значит:

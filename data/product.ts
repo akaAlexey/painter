@@ -37,7 +37,7 @@ export const product = {
     {
       title: 'Экспертное заключение',
       href: '/docs/expert-conclusion-elastic-pro.pdf',
-      caption: 'Публичная копия санитарно-эпидемиологической экспертизы: адреса скрыты'
+      caption: 'Санитарно-эпидемиологическая экспертиза продукции ELASTIC PRO'
     },
     {
       title: 'Логотип VIDTECHNOLOGY',

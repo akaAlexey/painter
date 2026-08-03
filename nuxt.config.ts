@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const baseURL = process.env.NUXT_APP_BASE_URL || '/'
-const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://example.ru'
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://elastic-pro.ru'
 
 export default defineNuxtConfig({
   ssr: true,

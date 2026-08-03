@@ -18,7 +18,8 @@
   },
   "devDependencies": {
     "@types/nodemailer": "^6.4.17",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vue-tsc": "^2.2.12"
   },
   "engines": {
     "node": ">=20.11.0"

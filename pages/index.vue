@@ -226,8 +226,8 @@ const surfaceFactors: Record<string, number> = {
 
 const packagePrices: Record<PaintVolume, number> = {
   1: 1200,
-  5: 5700,
-  9: 9900
+  5: 6000,
+  9: 10800
 }
 
 const requiredLiters = computed(() => {

@@ -11,15 +11,14 @@
     "lint:types": "nuxi typecheck"
   },
   "dependencies": {
-    "nodemailer": "^6.9.16",
-    "nuxt": "^3.15.0",
-    "vue": "^3.5.0",
-    "vue-router": "^4.5.0"
+    "nuxt": "^3.21.10",
+    "vue": "^3.5.40",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.17",
-    "typescript": "^5.7.0",
-    "vue-tsc": "^2.2.12"
+    "@types/node": "^20.19.43",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.3.9"
   },
   "engines": {
     "node": ">=20.11.0"

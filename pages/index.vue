@@ -18,7 +18,7 @@ const product = {
   category: 'Эластичная матовая краска',
   tagline: 'Белое матовое покрытие для стен, потолков и фасадов',
   logo: '/img/logo-source.png',
-  productImage: '/img/paint-bucket.png',
+  productImage: '/img/paint-bucket-v2.webp',
   productPhoto: '/img/paint-bucket-black.webp',
   applicationImage: '/img/paint-pouring.webp',
   interiorImage: '/img/interior-kitchen.jpg'
@@ -353,7 +353,14 @@ onBeforeUnmount(() => {
     <header class="site-header">
       <div class="container header-inner">
         <NuxtLink class="brand" to="/" aria-label="ELASTIC PRO — главная">
-          <img :src="asset(product.logo)" width="900" height="448" alt="VIDTECHNOLOGY">
+          <img
+            :src="asset(product.logo)"
+            width="900"
+            height="448"
+            alt="VIDTECHNOLOGY"
+            draggable="false"
+            @contextmenu.prevent
+          >
           <span>
             <strong>ELASTIC PRO</strong>
             <small>эластичная матовая краска</small>
@@ -405,14 +412,14 @@ onBeforeUnmount(() => {
         <div class="hero-grid-lines" aria-hidden="true" />
         <div class="container hero-grid">
           <div class="hero-copy" data-reveal>
-            <p class="eyebrow"><span /> VIDTECHNOLOGY · ELASTIC PRO</p>
+            <p class="eyebrow">VIDTECHNOLOGY · ELASTIC PRO</p>
             <h1 id="hero-title">
               <span>Белая.</span>
               <span>Матовая.</span>
               <strong>Эластичная.</strong>
             </h1>
             <p class="hero-lead">
-              Плотное спокойное покрытие для стен, потолков и фасадов. Один материал — для аккуратного ремонта внутри и снаружи.
+              Ровное белое матовое покрытие, которое помогает скрыть мелкие дефекты и сохраняет аккуратный вид стен, потолков и фасадов.
             </p>
             <div class="hero-actions">
               <button class="button button--primary" type="button" @click="scrollToSection('calculator')">
@@ -429,16 +436,17 @@ onBeforeUnmount(() => {
           </div>
 
           <div class="product-stage" data-reveal>
-            <div class="product-stage__serial" aria-hidden="true">EP / 01</div>
             <div class="product-stage__halo" aria-hidden="true" />
             <div class="product-stage__name" aria-hidden="true">ELASTIC</div>
             <img
               class="product-stage__bucket"
               :src="asset(product.productImage)"
-              width="485"
-              height="514"
-              alt="Черная банка белой матовой краски ELASTIC PRO"
+              width="1261"
+              height="1247"
+              alt="Банка белой матовой краски ELASTIC PRO"
               fetchpriority="high"
+              draggable="false"
+              @contextmenu.prevent
             >
             <div class="product-note product-note--coverage">
               <small>ориентир расхода</small>
@@ -473,6 +481,8 @@ onBeforeUnmount(() => {
               height="1280"
               alt="Белая краска ELASTIC PRO переливается из черной банки"
               loading="lazy"
+              draggable="false"
+              @contextmenu.prevent
             >
             <figcaption>
               <span>01 / материал</span>
@@ -482,16 +492,16 @@ onBeforeUnmount(() => {
 
           <div class="material-copy" data-reveal>
             <p class="section-kicker">Белый материал</p>
-            <h2 id="material-title">Белый цвет, который работает на поверхность.</h2>
+            <h2 id="material-title">Чистый белый мат — готовая основа для интерьера.</h2>
             <p class="section-lead">
-              ELASTIC PRO продаётся готовой белой матовой краской. Без каталога оттенков, колеровки и лишних обещаний — только понятные свойства материала.
+              ELASTIC PRO поставляется готовой белой матовой краской. Плотное покрытие визуально выравнивает поверхность, а белая база оставляет свободу выбора оттенка.
             </p>
             <div class="material-statement">
               <span class="material-statement__swatch" aria-hidden="true" />
               <div>
                 <small>цвет поставки</small>
                 <strong>Белый матовый</strong>
-                <p>Клиент при необходимости самостоятельно решает вопрос дальнейшей колеровки.</p>
+                <p>При желании белую базу легко самостоятельно колеровать водными или универсальными пастами.</p>
               </div>
             </div>
             <ul class="clean-list">
@@ -597,6 +607,8 @@ onBeforeUnmount(() => {
                 height="575"
                 alt="Светлый жилой интерьер с белыми стенами и потолком"
                 loading="lazy"
+                draggable="false"
+                @contextmenu.prevent
               >
               <figcaption>Светлое матовое покрытие в жилом интерьере</figcaption>
             </figure>
@@ -626,7 +638,7 @@ onBeforeUnmount(() => {
           <div class="section-heading section-heading--split" data-reveal>
             <div>
               <p class="section-kicker">Характеристики</p>
-              <h2 id="advantages-title">Практичные свойства без рекламного шума.</h2>
+              <h2 id="advantages-title">Покрытие, рассчитанное на реальную эксплуатацию.</h2>
             </div>
             <p>
               Всё главное о материале — коротко и честно. Перед работой сверяйтесь с технической документацией и учитывайте состояние основания.
@@ -737,7 +749,14 @@ onBeforeUnmount(() => {
     <footer class="site-footer">
       <div class="container footer-main">
         <div class="footer-brand">
-          <img :src="asset(product.logo)" width="900" height="448" alt="VIDTECHNOLOGY">
+          <img
+            :src="asset(product.logo)"
+            width="900"
+            height="448"
+            alt="VIDTECHNOLOGY"
+            draggable="false"
+            @contextmenu.prevent
+          >
           <p>ELASTIC PRO · белая эластичная матовая краска для внутренних и наружных работ.</p>
         </div>
         <nav aria-label="Навигация в подвале">

@@ -25,13 +25,6 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    smtpHost: process.env.SMTP_HOST || '',
-    smtpPort: Number(process.env.SMTP_PORT || 465),
-    smtpSecure: process.env.SMTP_SECURE !== 'false',
-    smtpUser: process.env.SMTP_USER || '',
-    smtpPass: process.env.SMTP_PASS || '',
-    mailFrom: process.env.MAIL_FROM || process.env.SMTP_USER || '',
-    leadRecipientEmail: process.env.LEAD_RECIPIENT_EMAIL || 'Vidtechnology@mail.ru',
     public: {
       siteUrl,
       baseURL
@@ -46,8 +39,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/privacy-policy': { prerender: true },
-    '/consent-processing': { prerender: true },
-    '/api/**': { cors: false }
+    '/consent-processing': { prerender: true }
   },
   typescript: {
     strict: true,

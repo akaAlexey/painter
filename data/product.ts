@@ -25,7 +25,7 @@ export const product = {
   phoneFormatted: '+7 (985) 138-58-50',
   email: 'Vidtechnology@mail.ru',
   heroImage: '/img/interior-kitchen.jpg',
-  productImage: '/img/paint-bucket.png',
+  productImage: '/img/paint-bucket-v2.webp',
   brandPoster: '/img/paint-bucket.png',
   applicationImage: '/img/paint-bucket.png',
   docs: [

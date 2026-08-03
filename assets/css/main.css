@@ -467,39 +467,6 @@ img {
   isolation: isolate;
 }
 
-.product-stage__halo {
-  position: absolute;
-  z-index: -2;
-  top: 50%;
-  left: 50%;
-  width: min(38vw, 500px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(161, 195, 240, 0.16);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 40% 35%, rgba(78, 143, 224, 0.5), transparent 38%),
-    radial-gradient(circle at 60% 72%, rgba(235, 119, 25, 0.18), transparent 33%),
-    rgba(9, 18, 31, 0.45);
-  box-shadow:
-    0 0 90px rgba(38, 91, 157, 0.18),
-    inset 0 0 70px rgba(255, 255, 255, 0.035);
-  transform: translate(-50%, -48%);
-}
-
-.product-stage__halo::before,
-.product-stage__halo::after {
-  position: absolute;
-  inset: -35px;
-  content: "";
-  border: 1px solid rgba(255, 255, 255, 0.055);
-  border-radius: 50%;
-}
-
-.product-stage__halo::after {
-  inset: -72px;
-  border-color: rgba(255, 255, 255, 0.028);
-}
-
 .product-stage__bucket {
   position: absolute;
   z-index: 3;
@@ -1199,42 +1166,6 @@ img {
   font-size: clamp(3.2rem, 5vw, 5.2rem);
 }
 
-.document-safety {
-  display: grid;
-  grid-template-columns: 34px 1fr;
-  align-items: start;
-  gap: 15px;
-  margin-top: 36px;
-  padding: 18px;
-  border: 1px solid rgba(119, 188, 139, 0.2);
-  border-radius: 14px;
-  background: rgba(86, 151, 108, 0.055);
-}
-
-.document-safety > span {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border: 1px solid rgba(129, 204, 151, 0.35);
-  border-radius: 50%;
-  color: #9ed2ac;
-  font-size: 13px;
-}
-
-.document-safety p {
-  margin: 0;
-  color: #7e8a94;
-  font-size: 11px;
-  line-height: 1.55;
-}
-
-.document-safety strong {
-  display: block;
-  margin-bottom: 3px;
-  color: #b8c3ca;
-}
-
 .documents-list {
   border-top: 1px solid var(--ep-line);
 }
@@ -1927,10 +1858,6 @@ img {
     width: min(39vw, 360px);
   }
 
-  .product-stage__halo {
-    width: min(44vw, 390px);
-  }
-
   .proof-strip {
     grid-template-columns: 1fr 1fr;
   }
@@ -2047,11 +1974,6 @@ img {
   .product-stage__bucket {
     top: 48%;
     width: min(72vw, 350px);
-  }
-
-  .product-stage__halo {
-    top: 48%;
-    width: min(80vw, 390px);
   }
 
   .product-note {
@@ -2200,11 +2122,6 @@ img {
   .product-stage__bucket {
     top: 46%;
     width: min(76vw, 330px);
-  }
-
-  .product-stage__halo {
-    top: 46%;
-    width: min(84vw, 370px);
   }
 
   .product-stage__name {

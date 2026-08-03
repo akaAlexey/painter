@@ -127,7 +127,7 @@ const documents = [
   {
     type: 'PDF',
     title: 'Экспертное заключение',
-    text: 'Публичная копия экспертизы. Адресные данные скрыты.',
+    text: 'Санитарно-эпидемиологическая экспертиза продукции ELASTIC PRO.',
     href: '/docs/expert-conclusion-elastic-pro.pdf'
   },
   {
@@ -437,7 +437,6 @@ onBeforeUnmount(() => {
           </div>
 
           <div class="product-stage" data-reveal>
-            <div class="product-stage__halo" aria-hidden="true" />
             <div class="product-stage__name" aria-hidden="true">ELASTIC</div>
             <img
               class="product-stage__bucket"
@@ -660,14 +659,10 @@ onBeforeUnmount(() => {
         <div class="container documents-layout">
           <div class="documents-intro" data-reveal>
             <p class="section-kicker">Документы</p>
-            <h2 id="documents-title">Не слова. Материалы о продукте.</h2>
+            <h2 id="documents-title">Материалы о продукте</h2>
             <p>
               Презентация, экспертное заключение и исходный знак VIDTECHNOLOGY доступны для просмотра и скачивания.
             </p>
-            <div class="document-safety">
-              <span aria-hidden="true">✓</span>
-              <p><strong>Публичная версия проверена.</strong> Адресные строки в экспертном заключении скрыты.</p>
-            </div>
           </div>
 
           <div class="documents-list" data-reveal>

@@ -3,7 +3,7 @@
 Промо-лендинг на Nuxt 3 для продажи белой матовой краски ELASTIC PRO. В проекте есть:
 
 - SEO-одностраничник с SSR и статической генерацией;
-- форма заявки;
+- быстрый контакт по телефону и электронной почте;
 - калькулятор расхода;
 - интерьерный блок с реальной фотографией;
 - FAQ;
@@ -50,25 +50,7 @@ npm run preview
 
 ## Важно для GitHub Pages
 
-GitHub Pages не поддерживает серверные Nuxt API routes. Это значит:
-
-- сам лендинг, SEO, калькулятор, модалки и копирование номера будут работать;
-- отправка заявки через `/api/lead` на GitHub Pages работать не будет;
-- для рабочей серверной формы нужен Vercel / Netlify / VPS / любой Node-хостинг.
-
-## SMTP для серверной отправки заявок
-
-Скопируйте `.env.example` в `.env` и заполните SMTP-настройки:
-
-```env
-SMTP_HOST=smtp.mail.ru
-SMTP_PORT=465
-SMTP_SECURE=true
-SMTP_USER=Vidtechnology@mail.ru
-SMTP_PASS=APP_PASSWORD
-MAIL_FROM="ELASTIC PRO <Vidtechnology@mail.ru>"
-LEAD_RECIPIENT_EMAIL=Vidtechnology@mail.ru
-```
+GitHub Pages публикует статическую версию Nuxt-сайта. Поэтому связь с продавцом реализована через телефон и электронную почту, без неработающего серверного API внутри статического хостинга.
 
 ## Полезные страницы
 
